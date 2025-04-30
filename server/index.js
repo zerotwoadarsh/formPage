@@ -51,3 +51,12 @@ app.post('/submit/formPage', async (req, res) => {
         }
     }
 });
+
+app.get('/entries/formPage', async (req, res) => {
+    try {
+      const entries = await FormPage.find();
+      res.status(200).json(entries);
+    } catch (error) {
+      res.status(500).json({ message: 'Error fetching entries' });
+    }
+  });
